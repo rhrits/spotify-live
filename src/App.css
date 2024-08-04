@@ -36,3 +36,13 @@
     transform: rotate(360deg);
   }
 }
+
+
+/* App.css */
+@media (max-width: 600px) {
+  .login-button {
+    width: 100%;
+    padding: 10px;
+  }
+
+}
