@@ -49,8 +49,16 @@ const App = () => {
           <Header />
           <MainContent>
             <Title>Hritik ❤️ Spotify</Title>
-            <CurrentlyPlaying track={currentlyPlaying} onPlay={handlePlay} />
-            {!currentlyPlaying && lastPlayed && <LastPlayed track={lastPlayed} />}
+            <LivePlayingContainer>
+              <CurrentlyPlaying track={currentlyPlaying} onPlay={handlePlay} />
+              {!currentlyPlaying && lastPlayed && <LastPlayed track={lastPlayed} />}
+              {currentlyPlaying && (
+                <LivePlayingText>
+                  Live Playing
+                  <LiveDot />
+                </LivePlayingText>
+              )}
+            </LivePlayingContainer>
             <FollowButton href="https://open.spotify.com/user/0mjqcqpix4awueoajdyfcd5to?si=dae3c3b029754dd5" target="_blank">
               Follow me on Spotify
             </FollowButton>
@@ -151,6 +159,38 @@ const FollowButton = styled.a`
     }
     100% {
       transform: translate(-50%, -50%) rotate(360deg);
+    }
+  }
+`;
+
+const LivePlayingContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+const LivePlayingText = styled.p`
+  color: white;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+`;
+
+const LiveDot = styled.span`
+  width: 10px;
+  height: 10px;
+  background-color: #1db954;
+  border-radius: 50%;
+  margin-left: 10px;
+  animation: blink 1s infinite;
+  
+  @keyframes blink {
+    0%, 50%, 100% {
+      opacity: 1;
+    }
+    25%, 75% {
+      opacity: 0.5;
     }
   }
 `;
