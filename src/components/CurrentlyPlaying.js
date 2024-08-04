@@ -5,11 +5,7 @@ import styled from 'styled-components';
 const CurrentlyPlaying = ({ track, onPlay }) => {
   if (!track) return null;
 
-  const handlePlay = () => {
-    if (track.uri) {
-      onPlay(track.uri);
-    }
-  };
+ 
 
   const handleRedirect = () => {
     if (track.external_urls.spotify) {
@@ -111,30 +107,6 @@ const Progress = styled.div`
     0% { transform: translateX(-100%); }
     100% { transform: translateX(100%); }
   }
-`;
-
-const FollowMe = styled.div`
-  margin-top: 20px;
-  font-size: 14px;
-  color: white;
-
-  a {
-    color: white;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-
-    &:hover {
-      text-decoration: underline;
-    }
-  }
-`;
-
-const SpotifyLogo = styled.img`
-  width: 24px;
-  height: 24px;
 `;
 
 export default CurrentlyPlaying;
