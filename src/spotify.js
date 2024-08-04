@@ -1,6 +1,6 @@
 // src/spotify.js
 export const authEndpoint = 'https://accounts.spotify.com/authorize';
-const redirectUri = 'http://localhost:3000/';
+const redirectUri = 'https://livespotify.netlify.app/';
 const clientId = process.env.REACT_APP_SPOTIFY_CLIENT_ID;
 const scopes = [
   'user-read-playback-state',
